@@ -8,6 +8,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import axios from 'axios';
 import { Spinner } from '../components/Spinner';
+import { useNavigate } from 'react-router-dom';
 const AddNews = () => {
 	const [editorState, setEditorState] = useState(() =>
 		EditorState.createEmpty()
@@ -15,7 +16,7 @@ const AddNews = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [loading, setLoading] = useState(false);
-
+	const navigate = useNavigate();
 	useEffect(() => {
 		//in order to send the data to the backend, we need to extract the raw text from the object
 		// console.log(convertToRaw(editorState.getCurrentContent()));
@@ -40,6 +41,7 @@ const AddNews = () => {
 			await axios.post('/api/newsitems/addnewsitem', data);
 			setLoading(false);
 			toast.success('News item added successfully');
+			navigate('/home');
 		} catch (error) {
 			console.log(error);
 			setLoading(false);

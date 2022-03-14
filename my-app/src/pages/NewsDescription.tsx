@@ -1,5 +1,5 @@
 import { Layout } from '../components/Layout';
-import { convertFromRaw } from 'draft-js';
+
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -42,10 +42,12 @@ const NewsDescription: React.FC = () => {
 
 	return (
 		<Layout>
-			<h1>{newsItem.title}</h1>
-			<p>{newsItem.description}</p>
+			<div className='p-5'>
+				<h1>{newsItem.title}</h1>
+				<p>{newsItem.description}</p>
 
-			<p>{newsItem.content}</p>
+				<p>{newsItem.content}</p>
+			</div>
 		</Layout>
 	);
 };

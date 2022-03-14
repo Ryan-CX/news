@@ -47,6 +47,7 @@ const HomePage: React.FC = () => {
 							>
 								<h1 className='text-primary text-lg font-bold'>{item.title}</h1>
 								<p>{item.description}</p>
+								<p>{item.content}</p>
 								<div className='flex justify-end flex-col items-end'>
 									<span className='text-gray-500 text-sm'>
 										By:{item.postedBy}

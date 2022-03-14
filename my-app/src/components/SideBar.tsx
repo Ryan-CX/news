@@ -32,7 +32,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 	];
 	return (
 		<div
-			className={`transition-all duration-300 bg-primary h-screen flex flex-col overflow-hidden ${
+			className={`min-h-screen max-h-full transition-all duration-300 bg-primary h-screen flex flex-col overflow-hidden ${
 				showSideBar ? `w-60` : 'w-0'
 			}`}
 		>

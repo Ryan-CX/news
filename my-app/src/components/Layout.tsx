@@ -8,7 +8,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
 	const [showSideBar, setShowSideBar] = useState(true);
 
 	return (
-		<div className='layout flex w-full'>
+		<div className='layout flex w-full h-full'>
 			<div className='sidebar'></div>
 			<div className='content'></div>
 			<SideBar showSideBar={showSideBar} />
@@ -20,7 +20,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
 						onClick={() => setShowSideBar(!showSideBar)}
 					/>
 				</div>
-				<div className='content'> {children}</div>
+				<div className='content max-h-[85vh] overflow-y-auto'> {children}</div>
 			</div>
 		</div>
 	);
