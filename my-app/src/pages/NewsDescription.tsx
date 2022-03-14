@@ -1,24 +1,29 @@
 import { Layout } from '../components/Layout';
+import { convertFromRaw } from 'draft-js';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { stateToHTML } from 'draft-js-export-html';
-import ReactHtmlParser from 'react-html-parser';
-
-type NewsItem = {
+interface NewsItem {
 	_id: string;
 	title: string;
 	description: string;
-	content: string;
-	postedBy?: string;
-	createdAt?: string;
-};
+	content: string | any;
+	postedBy: string;
+	createdAt: string;
+}
 
-const NewsDescription = () => {
+const NewsDescription: React.FC = () => {
 	const { newsid } = useParams();
 
-	const [newsItem, setNewsItem] = useState<NewsItem | any>();
+	const [newsItem, setNewsItem] = useState<NewsItem>({
+		_id: '',
+		title: '',
+		description: '',
+		content: '',
+		postedBy: '',
+		createdAt: '',
+	});
 	const getData = async () => {
 		try {
 			const result = await axios.post('/api/newsitems/getnewsbyid', {
@@ -26,16 +31,23 @@ const NewsDescription = () => {
 			});
 
 			setNewsItem(result.data);
-			console.log(newsItem.title);
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
 	useEffect(() => {
 		getData();
 	}, []);
 
-	return <Layout></Layout>;
+	return (
+		<Layout>
+			<h1>{newsItem.title}</h1>
+			<p>{newsItem.description}</p>
+
+			<p>{newsItem.content}</p>
+		</Layout>
+	);
 };
 
 export { NewsDescription };

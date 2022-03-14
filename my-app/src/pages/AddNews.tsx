@@ -18,17 +18,25 @@ const AddNews = () => {
 
 	useEffect(() => {
 		//in order to send the data to the backend, we need to extract the raw text from the object
-		console.log(convertToRaw(editorState.getCurrentContent()));
+		// console.log(convertToRaw(editorState.getCurrentContent()));
 	}, [editorState]);
 
 	const save = async () => {
 		setLoading(true);
 		try {
+			const blocks = convertToRaw(editorState.getCurrentContent()).blocks;
+			const value = blocks
+				.map(
+					(block: { text: string }) =>
+						(!block.text.trim() && '\n') || block.text
+				)
+				.join('\n');
 			const data = {
 				title,
 				description,
-				content: JSON.stringify(convertToRaw(editorState.getCurrentContent())),
+				content: value,
 			};
+
 			await axios.post('/api/newsitems/addnewsitem', data);
 			setLoading(false);
 			toast.success('News item added successfully');
