@@ -10,15 +10,19 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 
 	const menuItems = [
 		{
+			title: 'Latest',
+			path: '/latest',
+		},
+		{
 			title: 'Home',
 			path: '/home',
 		},
 		{
-			title: 'Posted',
+			title: 'My Notes',
 			path: '/posted',
 		},
 		{
-			title: 'AddNews',
+			title: 'Add Notes',
 			path: '/addnews',
 		},
 		{
