@@ -1,13 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import LanguageIcon from '@material-ui/icons/Language';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
+import { useNavigate } from 'react-router-dom';
 interface Props {
 	showSideBar: boolean;
 }
 
 export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 	const location = useLocation();
-
+	const navigate = useNavigate();
 	const menuItems = [
 		{
 			title: 'Latest',
@@ -34,6 +35,11 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 			path: '/logout',
 		},
 	];
+	//implementing the logic for logout
+	const logout = () => {
+		localStorage.removeItem('token');
+		navigate('/');
+	};
 	return (
 		<div
 			className={`min-h-screen max-h-full transition-all duration-300 bg-primary h-screen flex flex-col overflow-hidden ${
@@ -48,7 +54,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 			</div>
 			<div className='flex flex-col mt-20'>
 				{menuItems.map((item, i) => {
-					return (
+					return item.title !== 'Logout' ? (
 						<Link
 							key={i}
 							to={`${item.path}`}
@@ -61,6 +67,13 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 							<LanguageIcon className='mr-3' />
 							{item.title}
 						</Link>
+					) : (
+						<span
+							onClick={logout}
+							className='text-gray-100 hover:bg-gray-400 py-5 text-sm cursor-pointer'
+						>
+							Logout
+						</span>
 					);
 				})}
 			</div>

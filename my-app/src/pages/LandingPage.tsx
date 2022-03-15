@@ -1,6 +1,6 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { toast } from 'react-toastify';
@@ -59,6 +59,13 @@ const LandingPage = () => {
 			setLoading(false);
 		}
 	};
+
+	//after the user logs in, we need to redirect them to the latest page,not the registration page
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			navigate('/latest');
+		}
+	}, []);
 
 	return (
 		<div className='h-screen flex items-center sm:flex-col'>
