@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import { newsRoute } from './routes/newsRoute';
+import { userRoute } from './routes/userRoute';
 
 mongoose
 	.connect(`${process.env.MONGO}`)
@@ -16,7 +17,7 @@ mongoose
 	});
 
 app.use('/api/newsitems', newsRoute);
-
+app.use('/api/users', userRoute);
 app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
