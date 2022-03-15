@@ -4,10 +4,10 @@ import { HomePage } from './pages/HomePage';
 import { AddNews } from './pages/AddNews';
 import { Latest } from './pages/Latest';
 import { LandingPage } from './pages/LandingPage';
+import { PostedNews } from './pages/PostedNews';
 import { NewsDescription } from './pages/NewsDescription';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import * as React from 'react';
 
 function App() {
 	return (
@@ -37,6 +37,14 @@ function App() {
 						element={
 							<ProtectedRoute>
 								<AddNews />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/posted'
+						element={
+							<ProtectedRoute>
+								<PostedNews />
 							</ProtectedRoute>
 						}
 					/>

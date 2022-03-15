@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+//set up user model, the email should be case insensitive
 const UserSchema = new mongoose.Schema(
 	{
 		name: {
@@ -9,6 +9,8 @@ const UserSchema = new mongoose.Schema(
 		email: {
 			type: String,
 			required: true,
+			unique: true,
+			lowercase: true,
 		},
 		password: {
 			type: String,

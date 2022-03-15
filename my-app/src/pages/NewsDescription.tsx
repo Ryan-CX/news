@@ -42,9 +42,9 @@ const NewsDescription: React.FC = () => {
 
 	return (
 		<Layout>
-			<div className='p-5'>
-				<h1>{newsItem.title}</h1>
-				<p>{newsItem.description}</p>
+			<div className='p-5 space-y-10'>
+				<h1 className='text-primary text-3xl font-bold'>{newsItem.title}</h1>
+				<p className='text-primary text-lg font-bold'>{newsItem.description}</p>
 
 				<p>{newsItem.content}</p>
 			</div>

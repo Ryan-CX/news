@@ -21,6 +21,19 @@ newsRoute.get('/getallnewsitems', async (req: Request, res: Response) => {
 		res.status(400).send(err);
 	}
 });
+
+newsRoute.post('/getPosted', async (req: Request, res: Response) => {
+	try {
+		const newItem = await NewsItems.find();
+		const userPosted = newItem.filter(
+			(obj) => obj.postedBy.userid == req.body.userid
+		);
+
+		res.send(userPosted);
+	} catch (err) {
+		res.status(400).send(err);
+	}
+});
 newsRoute.post('/getnewsbyid', async (req: Request, res: Response) => {
 	try {
 		const newItem = await NewsItems.findOne({ _id: req.body.newsid });
