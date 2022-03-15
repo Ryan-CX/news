@@ -15,7 +15,7 @@ const newsItemSchema = new mongoose.Schema(
 			required: true,
 		},
 		postedBy: {
-			type: String,
+			type: Object,
 		},
 	},
 	{

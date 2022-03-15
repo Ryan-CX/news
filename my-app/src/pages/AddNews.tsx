@@ -16,6 +16,9 @@ const AddNews = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [loading, setLoading] = useState(false);
+	//get logged in user's local storage value and set it to the variable user
+	const user = JSON.parse(localStorage.getItem('token') || '');
+
 	const navigate = useNavigate();
 	useEffect(() => {
 		//in order to send the data to the backend, we need to extract the raw text from the object
@@ -36,6 +39,7 @@ const AddNews = () => {
 				title,
 				description,
 				content: value,
+				postedBy: { userid: user._id, email: user.email },
 			};
 
 			await axios.post('/api/newsitems/addnewsitem', data);

@@ -75,7 +75,7 @@ const LandingPage = () => {
 					<b className='text-[#32a871] text-8xl'>Note </b>
 					<b className='text-[#3273a8] text-8xl'>News</b>
 				</h1>
-				<p className='text-lg text-3xl'>
+				<p className='text-lg '>
 					Brings you the latest news from the world. Don't wait, register Now!
 				</p>
 				<div className='space-x-8 p-5 '>

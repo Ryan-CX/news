@@ -10,7 +10,10 @@ type NewsItem = {
 	title: string;
 	description: string;
 	content: string;
-	postedBy?: string;
+	postedBy: {
+		email: string;
+		_id: string;
+	};
 	createdAt?: string;
 };
 
@@ -50,7 +53,7 @@ const HomePage: React.FC = () => {
 								<p>{item.content}</p>
 								<div className='flex justify-end flex-col items-end'>
 									<span className='text-gray-500 text-sm'>
-										By:{item.postedBy}
+										By:{item.postedBy.email}
 									</span>
 									<span className='text-gray-500 text-sm'>
 										By:{item.createdAt?.slice(0, 10)}
