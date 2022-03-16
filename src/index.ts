@@ -7,8 +7,12 @@ import 'dotenv/config';
 import { newsRoute } from './routes/newsRoute';
 import { userRoute } from './routes/userRoute';
 import path from 'path';
+
+//in real production we should hide this to a .env file
 mongoose
-	.connect(`${process.env.MONGO}`)
+	.connect(
+		'mongodb+srv://xcg:wrn2dyhh@notebook.h028d.mongodb.net/news?retryWrites=true&w=majority'
+	)
 	.then(() => {
 		console.log('Connected to MongoDB');
 	})
