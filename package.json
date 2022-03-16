@@ -4,13 +4,10 @@
 	"description": "new app",
 	"main": "index.js",
 	"scripts": {
-		"server": "nodemon ./src/index.ts",
 		"start": "node dist/index.js",
-		"client": "npm start --prefix client",
-		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"dev": "nodemon ./src/index.ts",
 		"build": "tsc -p .",
-		"postinstall": "tsc",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+		"postinstall": "tsc"
 	},
 	"engines": {
 		"node": "14.16.1",
