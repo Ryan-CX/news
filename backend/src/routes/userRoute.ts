@@ -19,9 +19,10 @@ userRoute.post('/login', async (req: Request, res: Response) => {
 			email: req.body.email,
 			password: req.body.password,
 		});
-		delete result.password;
+
 		res.send(result);
 	} catch (err) {
+		console.log(err);
 		res.status(400).send(err);
 	}
 });
