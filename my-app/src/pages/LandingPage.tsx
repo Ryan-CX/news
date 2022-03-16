@@ -70,7 +70,11 @@ const LandingPage = () => {
 	return (
 		<div className='h-screen flex items-center sm:flex-col'>
 			{loading && <Spinner />}
-			<div className='w-1/2 px-10 space-y-5 sm:flex-col'>
+			<div
+				className={`w-1/2 px-10 space-y-5  sm:w-screen ${
+					(showLoginForm || showRegisterForm) && `sm:hidden`
+				}`}
+			>
 				<h1>
 					<b className='text-[#32a871] text-8xl'>Note </b>
 					<b className='text-[#3273a8] text-8xl'>News</b>
@@ -100,7 +104,7 @@ const LandingPage = () => {
 				</div>
 			</div>
 
-			<div className='w-1/2'>
+			<div className='w-1/2 sm:w-screen'>
 				{!showLoginForm && !showRegisterForm && (
 					<Player
 						// set the ref to your class instance
@@ -112,7 +116,7 @@ const LandingPage = () => {
 				)}
 
 				{showLoginForm && !showRegisterForm && (
-					<div className='ml-40'>
+					<div className='ml-40 sm:ml-0'>
 						<div className='flex flex-col bg-primary h-screen justify-center items-center px-20 space-y-5'>
 							<h1 className='text-4xl text-gray-200 text-left w-full my-5'>
 								LOG IN
@@ -145,7 +149,7 @@ const LandingPage = () => {
 				)}
 
 				{!showLoginForm && showRegisterForm && (
-					<div className='ml-40'>
+					<div className='ml-40 sm:ml-0'>
 						<div className='flex flex-col bg-primary h-screen justify-center items-center px-20 space-y-5'>
 							<h1 className='text-4xl text-gray-200 text-left w-full my-5'>
 								Register

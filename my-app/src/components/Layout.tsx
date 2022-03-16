@@ -1,4 +1,3 @@
-import { ReactChild, ReactFragment, ReactNode, ReactPortal } from 'react';
 import { SideBar } from './SideBar';
 import { useState } from 'react';
 import { List } from '@material-ui/icons';
@@ -15,7 +14,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
 			<div className='w-full'>
 				<div className='header bg-primary h-20 w-full flex items-center'>
 					<List
-						style={{ fontSize: 60 }}
+						style={{ fontSize: 60, color: 'white' }}
 						className='folding'
 						onClick={() => setShowSideBar(!showSideBar)}
 					/>

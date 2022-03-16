@@ -15,7 +15,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 			path: '/latest',
 		},
 		{
-			title: 'Home',
+			title: 'Note Hub',
 			path: '/home',
 		},
 		{
@@ -26,10 +26,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 			title: 'Add Notes',
 			path: '/addnews',
 		},
-		{
-			title: 'Profile',
-			path: '/profile',
-		},
+
 		{
 			title: 'Logout',
 			path: '/logout',
@@ -47,7 +44,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 			}`}
 		>
 			<div>
-				<h1 className='text-4xl font-bold mt-8 text-gray-200'>
+				<h1 className='text-4xl font-bold mt-5 text-gray-200'>
 					<FiberNewIcon style={{ fontSize: 50 }} />
 					NEWS
 				</h1>
@@ -69,6 +66,7 @@ export const SideBar: React.FC<Props> = ({ showSideBar }) => {
 						</Link>
 					) : (
 						<span
+							key={i}
 							onClick={logout}
 							className='text-gray-100 hover:bg-gray-400 py-5 text-sm cursor-pointer'
 						>

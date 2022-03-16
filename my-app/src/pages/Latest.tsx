@@ -20,7 +20,7 @@ const Latest: React.FC = () => {
 		setLoading(true);
 		try {
 			const result = await axios.get(
-				`https://newsapi.org/v2/everything?q=keyword&apiKey=e070847634e5491eb300c4130f2317ea`
+				`https://newsapi.org/v2/top-headlines?country=us&apiKey=e070847634e5491eb300c4130f2317ea`
 			);
 			setLoading(false);
 			setNewsItems(result.data.articles);
@@ -49,9 +49,9 @@ const Latest: React.FC = () => {
 				<div className='grid grid-cols-2 sm:grid-cols-1 gap-5 mx-20 sm:mx-5 my-10'>
 					{newsItems.map((item, i) => {
 						return (
-							<div key={i} className='shadow-md p-3 border cursor-pointer'>
+							<div key={i} className='shadow-md p-3 border '>
 								<h1
-									className='text-primary text-lg font-bold'
+									className='text-primary text-lg font-bold  cursor-pointer'
 									onClick={() => navigateToExternalUrl(item.url)}
 								>
 									{item.title}

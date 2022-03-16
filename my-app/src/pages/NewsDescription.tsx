@@ -26,7 +26,7 @@ const NewsDescription: React.FC = () => {
 	});
 	const getData = async () => {
 		try {
-			const result = await axios.post('/api/newsitems/getnewsbyid', {
+			const result = await axios.post('/api/newsitems/getDetail', {
 				newsid: newsid,
 			});
 
