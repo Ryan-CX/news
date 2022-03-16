@@ -21,7 +21,10 @@ const LandingPage = () => {
 				email,
 				password,
 			};
-			const result = await axios.post('/api/users/login', payload);
+			const result = await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/users/login`,
+				payload
+			);
 			setLoading(false);
 			toast.success('Login Successful, go ahead and explore');
 			localStorage.setItem('token', JSON.stringify(result.data));
@@ -46,7 +49,10 @@ const LandingPage = () => {
 				setLoading(false);
 				return;
 			}
-			await axios.post('/api/users/register', payload);
+			await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/users/register`,
+				payload
+			);
 			setLoading(false);
 			toast.success('Registration Successful, go ahead and log in');
 			setShowRegisterForm(false);

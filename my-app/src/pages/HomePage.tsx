@@ -24,7 +24,9 @@ const HomePage: React.FC = () => {
 	const getData = async () => {
 		setLoading(true);
 		try {
-			const result = await axios.get('/api/newsitems/getallnewsitems');
+			const result = await axios.get(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/getallnewsitems`
+			);
 			setLoading(false);
 			setNewsItems(result.data);
 			toast.success('Successfully fetched news items');

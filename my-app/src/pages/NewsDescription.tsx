@@ -26,9 +26,12 @@ const NewsDescription: React.FC = () => {
 	});
 	const getData = async () => {
 		try {
-			const result = await axios.post('/api/newsitems/getDetail', {
-				newsid: newsid,
-			});
+			const result = await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/getDetail`,
+				{
+					newsid: newsid,
+				}
+			);
 
 			setNewsItem(result.data);
 		} catch (error) {

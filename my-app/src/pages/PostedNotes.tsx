@@ -28,9 +28,12 @@ const PostedNotes: React.FC = () => {
 	const getData = async () => {
 		setLoading(true);
 		try {
-			const result = await axios.post('/api/newsitems/getallpostbyuserid', {
-				userid: user._id,
-			});
+			const result = await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/getallpostbyuserid`,
+				{
+					userid: user._id,
+				}
+			);
 			setLoading(false);
 			setNewsItems(result.data);
 		} catch (error) {
@@ -45,9 +48,12 @@ const PostedNotes: React.FC = () => {
 	const deleteNotes = async (newsid: string) => {
 		setLoading(true);
 		try {
-			await axios.post('/api/newsitems/deletenotes', {
-				newsid,
-			});
+			await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/deletenotes`,
+				{
+					newsid,
+				}
+			);
 			getData();
 			setLoading(false);
 

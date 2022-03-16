@@ -42,7 +42,10 @@ const EditNews: React.FC = () => {
 				newsid: newsid,
 			};
 
-			await axios.post('/api/newsitems/editmynotes', data);
+			await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/editmynotes`,
+				data
+			);
 			setLoading(false);
 			toast.success('News item edited successfully');
 			navigate('/home');

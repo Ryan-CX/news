@@ -42,7 +42,10 @@ const AddNews = () => {
 				postedBy: { userid: user._id, email: user.email },
 			};
 
-			await axios.post('/api/newsitems/addnewsitem', data);
+			await axios.post(
+				`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/newsitems/addnewsitem`,
+				data
+			);
 			setLoading(false);
 			toast.success('News item added successfully');
 			navigate('/home');
