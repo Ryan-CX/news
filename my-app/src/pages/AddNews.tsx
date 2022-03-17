@@ -42,7 +42,10 @@ const AddNews = () => {
 				postedBy: { userid: user._id, email: user.email },
 			};
 
-			await axios.post('/api/newsitems/addnewsitem', data);
+			await axios.post(
+				'https://notenewsapp.herokuapp.com/api/newsitems/addnewsitem',
+				data
+			);
 			setLoading(false);
 			toast.success('News item added successfully');
 			navigate('/home');
@@ -55,7 +58,7 @@ const AddNews = () => {
 	return (
 		<Layout>
 			{loading && <Spinner />}
-			<h1 className='text-2xl font-semibold mt-5 ml-5'>Add news</h1>
+			<h1 className='text-2xl font-semibold mt-5 ml-5'>Add Notes</h1>
 			<div className='px-5'>
 				<input
 					value={title}
@@ -85,9 +88,11 @@ const AddNews = () => {
 					className='px-5 py-2 bg-red-500'
 					onClick={() => navigate('/home')}
 				>
+					Cancel
 					<CancelIcon />
 				</button>
 				<button className='px-5 py-2 bg-green-600' onClick={save}>
+					Save
 					<SaveAltIcon />
 				</button>
 			</div>

@@ -24,7 +24,9 @@ const HomePage: React.FC = () => {
 	const getData = async () => {
 		setLoading(true);
 		try {
-			const result = await axios.get('/api/newsitems/getallnewsitems');
+			const result = await axios.get(
+				'https://notenewsapp.herokuapp.com/api/newsitems/getallnewsitems'
+			);
 			setLoading(false);
 			setNewsItems(result.data);
 			toast.success('Successfully fetched news items');
@@ -45,17 +47,19 @@ const HomePage: React.FC = () => {
 						return (
 							<div
 								key={i}
-								className='shadow-md p-3 border cursor-pointer'
+								className='shadow-md p-3  cursor-pointer border-2 border-indigo-500/100'
 								onClick={() => navigate(`/newsdesc/${item._id}`)}
 							>
-								<h1 className='text-primary text-lg font-bold'>{item.title}</h1>
-								<p>{item.description}</p>
+								<h1 className='text-primary text-2xl font-bold mb-5'>
+									{item.title}
+								</h1>
+								<p className='mb-5 text-lg'>{item.description}</p>
 								<p>{item.content}</p>
 								<div className='flex justify-end flex-col items-end'>
 									<span className='text-gray-500 text-sm'>
 										By:{item.postedBy.email}
 									</span>
-									<span className='text-gray-500 text-sm'>
+									<span className='text-gray-500 text-base'>
 										By:{item.createdAt?.slice(0, 10)}
 									</span>
 								</div>

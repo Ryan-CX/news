@@ -26,9 +26,12 @@ const NewsDescription: React.FC = () => {
 	});
 	const getData = async () => {
 		try {
-			const result = await axios.post('/api/newsitems/getDetail', {
-				newsid: newsid,
-			});
+			const result = await axios.post(
+				'https://notenewsapp.herokuapp.com/api/newsitems/getDetail',
+				{
+					newsid: newsid,
+				}
+			);
 
 			setNewsItem(result.data);
 		} catch (error) {
