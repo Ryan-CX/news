@@ -8,7 +8,10 @@
 **</p>
 </blockquote>
 <h2 id="news-feed-app">News Feed App</h2>
-<p>The App is available here: <a href="https://newsnote.netlify.app/">NoteNews</a></p>
+<p>The App is available here: <a href="https://newsnote.netlify.app/">NoteNews</a><br>
+If you don’t want to register a new user, simply use the following credentials to log in:</p>
+<p>Email: <a href="mailto:test1@gmail.com">test1@gmail.com</a><br>
+Password: 123456</p>
 <p>This is a full stack web app using MERN technology.<br>
 Key features are:</p>
 <ul>
