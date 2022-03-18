@@ -75,11 +75,27 @@ Hierarchy implementation:</p>
 </li>
 <li>
 <p>Backend has two main folders:<br>
-<strong>models</strong>: containing schemas created using Mongoose for create post and user, the first one contains keys like “title”, “description”, “content”, etc. The User schema has “name”, “email”, “password”, etc.</p>
+<strong>models</strong>: containing schemas created using Mongoose for create post and user, the first one contains keys like “title”, “description”, “content”, etc. The User schema has “name”, “email”, “password”, etc. Generally speaking, the model looks like something like this:<br>
+<code>const newsItemSchema = new mongoose.Schema( 		{ 	title: { 		type: String, 		required: true, 	}, 	content: { 		type: String, 		required: true, 	}, 	description: { 		type: String, 		required: true, 	}, 	postedBy: { 		type: Object, 	}, }, { 	timestamps: true, } );</code><br>
+Simple and straight forward if you have any experience in MongoDB.</p>
 </li>
 </ul>
 <p><strong>routes</strong>: containing <strong>newsRoute</strong> and <strong>userRoute</strong>. newsRoute is responsible for the <strong>CRUD</strong> operations of creating new notes to the notes hub page, edit and delete user’s own notes, and get all notes posted by all users.<br>
 userRoute is responsible for registering and login functionality.</p>
+<p>Take one example, <strong>POST/getallpostbyuserid</strong>, the code is following:</p>
+<pre><code>newsRoute.post('/getallpostbyuserid', async (req: Request, res: Response) =&gt; {
+try {
+	const newItem = await NewsItems.find();
+	const userPosted = newItem.filter(
+		(obj) =&gt; obj.postedBy.userid == req.body.userid
+	);
+
+	res.send(userPosted);
+} catch (err) {
+	res.status(400).send(err);
+}});
+</code></pre>
+<p>First this is a <strong>POST</strong> method, which means we are finally going to <strong>send</strong> something. We first investigated NewsItems database and use the <code>find()</code> method to return <strong>all object</strong> store in an array. Then, we use the JavaScript high order function <strong>filter</strong> to narrow down the target by setting the rules, in this case, we are going to find all the posts inside our database that <strong>matches</strong> our current userid. We then send this to the front-end and it will get rendered to the front-end page.</p>
 <p>Please refer to the diagram below for the pattern. (For higher resolution please visit: <a href="https://drive.google.com/file/d/1W5talZAwembN65RcU1DDmTFSBpxgUSZN/view?usp=sharing">link</a>)</p>
 <p><img src="https://i.imgur.com/sM0IGkZ.png" alt="image"></p>
 <br>
