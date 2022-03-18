@@ -87,7 +87,8 @@ This app uses the news feed API from <a href="http://GNews.io">GNews.io</a> (<a 
 <p>I’m using the free tier so it will retrieve 10 news per request. The country has been set to US. Here are the results.<br>
 <img src="https://i.imgur.com/X10Lmky.png" alt="image"></p>
 <ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="true" disabled=""> At least 5 mererial-UI icons.<br>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox" checked="true" disabled=""> At least 5 mererial-UI icons.<br>
 <img src="https://i.imgur.com/JsaQjZT.png" alt="enter image description here"><br>
 <img src="https://i.imgur.com/efsuHRE.png" alt="enter image description here"><br>
 <img src="https://i.imgur.com/3YNxc5d.png" alt="enter image description here"><br>
@@ -95,8 +96,11 @@ This app uses the news feed API from <a href="http://GNews.io">GNews.io</a> (<a 
 <img src="https://i.imgur.com/QMtCwW0.png" alt="enter image description here"><br>
 <br><br>
 <br><br>
-<br></li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="true" disabled=""> Example of reusable component:<br>
-As you can see from the previous webpage picture. The sidebar and top header are universal across every page. Also, the edit notes page and add notes page share the same structure, as well as login and register UI, they share the same UI design.</li>
+<br></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox" checked="true" disabled=""> Example of reusable component:<br>
+As you can see from the previous webpage picture. The sidebar and top header are universal across every page. Also, the edit notes page and add notes page share the same structure, as well as login and register UI, they share the same UI design.</p>
+</li>
 </ul>
 
