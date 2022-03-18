@@ -16,13 +16,13 @@ Key features are:</p>
 <img src="https://i.imgur.com/uwBvWNw.gif" alt="enter image description here"><br>
 <img src="https://i.imgur.com/w27S1wM.png" alt="enter image description here"><br>
 <img src="https://i.imgur.com/p3rn7l9.png" alt="enter image description here"></li>
-<li>After logging in, the <strong>homepage</strong> will pull the latest news happening in the world from GNEWS API.<br>
+<li>After logging in, the <strong>homepage</strong> will pull the latest news happening in the world from GNEWS API. Click the title will bring you to the external newspage.<br>
 <img src="https://i.imgur.com/X10Lmky.png" alt="enter image description here"></li>
-<li><strong>Notes Hub</strong> section will display notes written by different users<br>
+<li><strong>Notes Hub</strong> section will display notes written by different users. You can see all posts from different users under different emails.<br>
 <img src="https://i.imgur.com/7uzOp9r.png" alt="enter image description here"></li>
-<li><strong>Add notes page</strong> will allow user to add their notes to the Notes Hub.<br>
+<li><strong>Add notes page</strong> will allow user to add their notes to the Notes Hub. This is where you can add your own post to the hub.<br>
 <img src="https://i.imgur.com/SP051Mc.png" alt="enter image description here"></li>
-<li><strong>My Notes</strong> page will allow you to see your own posted notes and make modification or deletion.<br>
+<li><strong>My Notes</strong> page will allow you to see your own posted notes stored in the MongoDB database and make modification such as edit and deletion<br>
 <img src="https://i.imgur.com/WUV4QF8.png" alt="enter image description here"></li>
 </ul>
 <h2 id="key-features-that-fulfill-the-requirements">Key Features that fulfill the requirements:</h2>
