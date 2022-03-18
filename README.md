@@ -13,7 +13,7 @@
 Key features are:</p>
 <ul>
 <li><strong>Landing Page</strong> with Login/Register feature.<br>
--<img src="https://i.imgur.com/uUhZCM2.png" alt="enter image description here"><br>
+<img src="https://i.imgur.com/uwBvWNw.gif" alt="enter image description here"><br>
 <img src="https://i.imgur.com/w27S1wM.png" alt="enter image description here"><br>
 <img src="https://i.imgur.com/p3rn7l9.png" alt="enter image description here"></li>
 <li>After logging in, the <strong>homepage</strong> will pull the latest news happening in the world from GNEWS API.<br>
